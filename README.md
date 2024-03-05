@@ -15,10 +15,12 @@ from abel_convert_loadsheet import *
 
 loadsheet_path = './Loadsheet.xlsx'
 payload_path = './Payload.csv'
+building_config_path = './BuildingConfig.csv'
 
 convert = Abel()
 convert.import_loadsheet(loadsheet_path)
 convert.import_payload(payload_path)
+convert.import_building_config(building_config_path)
 convert.build()
 convert.dump(loadsheet_path)
 ```
