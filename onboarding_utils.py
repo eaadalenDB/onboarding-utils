@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import ruamel.yaml as yaml
 
-def export_update_config(building_config_path, abel_config_path, dump_path, entity_list = None):
+def export_update_config(building_config_path, abel_config_path, dump_path, entity_list = None, max_items = 50):
     '''
     Exports Onboard-Update config yaml. If there are more than 100 Entities to update, multiple config files will be exported to prevent DB API operation deadline errors.
     Args:
@@ -11,7 +11,7 @@ def export_update_config(building_config_path, abel_config_path, dump_path, enti
         dump_path: path to the new onboard-update yaml
         entity_list: list of Entity Guids, if only need to export a config for select Entities. Default: None, all entities will be exported.
     '''
-    MAX_ITEMS_PER_CONFIG = 100
+    MAX_ITEMS_PER_CONFIG = max_items
 
     with open(building_config_path, 'r') as f:
         building_config = yaml.load(f, Loader=yaml.RoundTripLoader)
@@ -104,6 +104,10 @@ def export_add_config(building_config_path, abel_config_path, dump_path):
 
     reporting = {}
     for key, val in abel_config.items():
+        if 'update_mask' in val.keys():
+            val.pop('update_mask')
+        if 'operation' in val.keys():
+            val.pop('operation')
         if val.get('translation'):
             if key in building_config.keys():
                 reporting[key] = {'etag': building_config[key].get('etag')} \
