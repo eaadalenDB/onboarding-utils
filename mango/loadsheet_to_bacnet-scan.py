@@ -1,9 +1,6 @@
-import json
 import os
 import pandas as pd
 import yaml
-import uuid
-import openpyxl
 import sys
 
 object_id_map = {
@@ -70,7 +67,7 @@ if __name__=="__main__":
         sys.exit()
 
     mango_config = None
-    mango_config_prompt = ("Would you like to load a mango config file? Y/N: ")
+    mango_config_prompt = input("Would you like to load a mango config file? Y/N: ")
     if mango_config_prompt.lower()=='y':
         mango_config_path = input("Insert path to mango config (.csv): ")
         #load mango config

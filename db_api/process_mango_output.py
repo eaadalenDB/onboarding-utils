@@ -179,10 +179,10 @@ def process_file(input_file, full_building_config_file):
 # Entry point
 # ----------------------------
 if __name__ == "__main__":
-    # input_file = input("Enter the absolute path to the Mango YAML file: ").strip()
-    # full_building_config_file = input("Enter the absolute path to full_building_config.yaml: ").strip()
-    input_file = '/usr/local/google/home/aadalen/Documents/Onboarding/mango_onboarding/US-PAO-EM25/configs/mango_export.yaml'
-    full_building_config_file = '/usr/local/google/home/aadalen/Documents/Onboarding/mango_onboarding/US-PAO-EM25/configs/full_building_config.yaml'
+    input_file = input("Enter the absolute path to the Mango YAML file: ").strip()
+    full_building_config_file = input("Enter the absolute path to full_building_config.yaml: ").strip()
+    # input_file = '/usr/local/google/home/aadalen/Documents/Onboarding/mango_onboarding/US-PAO-EM25/configs/mango_export.yaml'
+    # full_building_config_file = '/usr/local/google/home/aadalen/Documents/Onboarding/mango_onboarding/US-PAO-EM25/configs/full_building_config.yaml'
 
     if not os.path.isfile(input_file):
         print(f"ERROR: Mango file not found: {input_file}")
