@@ -3,17 +3,9 @@ import pandas as pd
 import yaml
 import sys
 
-pd.options.mode.chained_assignment = None
+from helpers import helpers
 
-object_id_map = {
-    "AV": "analogValue",
-    "AI": "analogInput",
-    "AO": "analogOutput",
-    "BV": "binaryValue",
-    "BI": "binaryInput",
-    "BO": "binaryOutput",
-    "MSV": "multiStateValue"
-}
+pd.options.mode.chained_assignment = None
 
 def load_file(file_path, **kwargs):
     if not os.path.exists(file_path):
@@ -107,7 +99,7 @@ def process_loadsheet(loadsheet: pd.DataFrame, mango_config: pd.DataFrame = None
                 else:
                     loadsheet.loc[loadsheet['device_name']==dev, 'cloud_device_id'] = df_slice['cloud_device_id'].values[0]
 
-        loadsheet['object'] = loadsheet['objectType'].map(object_id_map) + ":" + loadsheet['objectId'].astype(str)
+        loadsheet['object'] = loadsheet['objectType'].map(helpers.OBJECT_ID_MAP_BMS_TO_CAMEL) + ":" + loadsheet['objectId'].astype(str)
         loadsheet['cloud_point_name'] = loadsheet['standardFieldName']
         print("Loadsheet processed successfully.")
 
