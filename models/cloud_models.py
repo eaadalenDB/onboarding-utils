@@ -35,7 +35,7 @@ class Device:
     def numeric_id(self):
         return self._numeric_id
     
-    @proxy_id.setter
+    @numeric_id.setter
     def numeric_id(self, value):
         if not isinstance(value, str) and value is not None:
             raise ValueError("numeric_id must be a string or None")

@@ -49,7 +49,7 @@ def main():
             if not device: 
                 continue
             elif not device.numeric_id:
-                device.numeric_id = device_discovery.loc[device_discovery.device_id==proxy_id, 'device_num_id'].item()
+                device.numeric_id = device_discovery.loc[device_discovery.device_id==device.proxy_id, 'device_num_id'].item()
 
             if device.proxy_id and device.numeric_id:
                 break
@@ -73,7 +73,7 @@ def main():
 
         helpers.write_yaml(output_path, building_config)
 
-        print(f"Building config successfully exported: {output_path}")
+    print(f"Building config successfully exported: {output_path}")
 
 if __name__=="__main__":
     main()
