@@ -94,7 +94,7 @@ class Mapper(cmd.Cmd):
         try:
             execute_api_calls.main() 
         except Exception as e:
-            print("[ERROR]: Unable to run onboarding operation: {e}")
+            print(f"[ERROR]: Unable to run onboarding operation: {e}")
 
     def do_q(self, arg):
         """Quits Program"""

@@ -247,7 +247,7 @@ def main():
             continue
 
         print(f"\n--- Processing config file: {cfg} ---")
-        transfer_etags.sync_etags(building_config_path, cfg)
+        update_etags.sync_etags(building_config_path, cfg)
         success = run_onboard_and_get_status(building_code, cfg, result_file)
         result_files.append((result_file, cfg, False))
         print(f"Moving to next file...")

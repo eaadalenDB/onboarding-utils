@@ -56,7 +56,10 @@ def split_config_file(input_file):
         guid_blocks.append(current_block)
 
     # Directory for outputs
-    output_dir = os.path.dirname(input_file)
+    output_dir = os.path.join(os.path.dirname(input_file), "split_configs")
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
+
     base_name = os.path.splitext(os.path.basename(input_file))[0]
 
     # Write each GUID block into its own file
@@ -65,9 +68,9 @@ def split_config_file(input_file):
         output_file = os.path.join(output_dir, f"{base_name}_pt{part_num}.yaml")
         with open(output_file, "w") as f:
             f.writelines(header + block)
-        print(f"Wrote {output_file} with {len(header) + len(block)} lines")
+        # print(f"Wrote {output_file} with {len(header) + len(block)} lines")
         part_num += 1
-
+    print(f"Individual config files were successfully saved in {output_dir}")
 
 def main():
     try:
