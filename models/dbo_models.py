@@ -60,6 +60,7 @@ class Entity():
         self.cloud_device_id = cloud_device_id
         self.namespace = namespace
         self.type_name = type_name
+        self.display_name=display_name
         self.fields = []
         self.operation = None
 
