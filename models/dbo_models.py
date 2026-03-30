@@ -98,6 +98,7 @@ class Entity():
         return {
                     str(self.guid): {
                         "cloud_device_id": self.cloud_device_id,
+                        "display_name": self.display_name,
                         "code": self.code,
                         "type": f"{self.namespace}/{self.type_name}",
                         "operation": self.operation or "ADD",

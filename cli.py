@@ -77,7 +77,6 @@ class Mapper(cmd.Cmd):
 
     def do_3(self, arg):
         """Export a new building config"""
-        # Fixed variable name to match your import if needed
         try:
             export_building_config.main()
         except Exception as e:
@@ -92,7 +91,6 @@ class Mapper(cmd.Cmd):
 
     def do_5(self, arg):
         """Export a new building config"""
-        # Fixed variable name to match your import if needed
         try:
             execute_api_calls.main() 
         except Exception as e:

@@ -69,7 +69,6 @@ class SiteModel():
         self._duplicate_points = set()
 
     def add_device(self, device: Device):
-        # Added 'self' argument and fixed return/print logic
         if device.proxy_id in self.devices:
             print(f"Device already added: {device.proxy_id}")
             return
@@ -103,13 +102,12 @@ class SiteModel():
             print(f"Directory not found: {path}")
             return None
 
-        # Fix path construction logic
         if "udmi" not in path:
             path = os.path.join(path, "udmi")
-        if "devices" not in path: # Fixed 'no in' typo
+        if "devices" not in path:
             path = os.path.join(path, "devices")
 
-        site = cls() # Create the instance to return
+        site = cls()
         
         if not os.path.exists(path):
             print(f"Directory not found: {path}")
