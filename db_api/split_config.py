@@ -71,7 +71,7 @@ def split_config_file(input_file):
 
 def main():
     try:
-        input_file = input("Enter the absolute path to the original config file: ").strip()
+        input_file = input("Enter the absolute path to the config file you would like to split: ").strip()
         if not os.path.isabs(input_file):
             print("❌ Please provide an absolute path.")
         elif not os.path.exists(input_file):

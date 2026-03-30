@@ -21,7 +21,7 @@ def main():
 
     building_config = {}
     building_config.update(
-        {"CONFIG_METADATA": {"operation": "UDATE"}}
+        {"CONFIG_METADATA": {"operation": "UDPATE"}}
         )
 
     for asset in assets:
